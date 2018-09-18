@@ -245,6 +245,7 @@ $(".test").hide() - 隐藏所有 class="test" 的所有元素
 $("#test").hide() - 隐藏所有 id="test" 的元素
 ```
 ### juery 引用地址
+```
 jQuery：   
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>  
 jQuery mobile：   
@@ -254,7 +255,8 @@ jQuery mobile：
 jQuery UI：    
   <link rel="stylesheet" href="http://apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">   
   <script src="http://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>  
-  <script src="http://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>  
+  <script src="http://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script> 
+```
 ### jQuery 元素选择器
 ```
 $("p") 选取 <p> 元素。
