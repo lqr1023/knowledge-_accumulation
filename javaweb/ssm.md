@@ -235,7 +235,8 @@ CREATE TABLE `appointment` (
   %>
   action="<%=basePath=>/..."转成绝对路径或者<form action="<c:url value='/book/${book.bookId}/detail'/>" method="get">
   ```
-> juery 基本语法$(selector).action()     
+### juery 基本语法
+$(selector).action()     
 例如：
 ```
 $(this).hide() - 隐藏当前元素
@@ -243,6 +244,17 @@ $("p").hide() - 隐藏所有段落
 $(".test").hide() - 隐藏所有 class="test" 的所有元素
 $("#test").hide() - 隐藏所有 id="test" 的元素
 ```
+### juery 引用地址
+jQuery：   
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>  
+jQuery mobile：   
+  <link rel="stylesheet"  href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />   
+    <script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>  
+    <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>  
+jQuery UI：    
+  <link rel="stylesheet" href="http://apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">   
+  <script src="http://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>  
+  <script src="http://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>  
 ### jQuery 元素选择器
 ```
 $("p") 选取 <p> 元素。
