@@ -203,8 +203,61 @@ CREATE TABLE `appointment` (
 泛型类的声明和非泛型类的声明类似，除了在类名后面添加了类型参数声明部分。  
 和泛型方法一样，泛型类的类型参数声明部分也包含一个或多个类型参数，参数间用逗号隔开。一个泛型参数，也被称为一个类型变量，是用于指定一个泛型类型名称的标识符。因为他们接受一个或多个参数，这些类被称为参数化的类或参数化的类型。    
 - 编写具体的controller代码 返回视图页面或者json数据 
-### 前端测试  
-
+### 前端简单测试    
+- 测试返回全部图书信息list.jsp 在指定返回视图文件夹下建立list.jsp,引入标签
+```
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+``` 
+- 循环取list中的数值  
+> el表达式
+```
+<table>
+    <tr>
+        <th>图书id</th>
+        <th>图书名称</th>
+        <th>图书数量</th>
+    </tr>
+<c:forEach items="${list}" var="book">
+    <tr>
+        <td>${book.bookId}</td>
+        <td>${book.name}</td>
+        <td>${book.number}</td>
+    </tr>
+</c:forEach>
+</table>
+```
+- 页面访问url http://localhost:8080/ssm/book/list  
+> form提交路径写法   
+  ```
+  <%
+   String path = request.getContextPath();
+   String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+  %>
+  action="<%=basePath=>/..."转成绝对路径或者<form action="<c:url value='/book/${book.bookId}/detail'/>" method="get">
+  ```
+> juery 基本语法$(selector).action()     
+例如：
+```
+$(this).hide() - 隐藏当前元素
+$("p").hide() - 隐藏所有段落
+$(".test").hide() - 隐藏所有 class="test" 的所有元素
+$("#test").hide() - 隐藏所有 id="test" 的元素
+```
+### jQuery 元素选择器
+```
+$("p") 选取 <p> 元素。
+$("p.intro") 选取所有 class="intro" 的 <p> 元素。
+$("p#demo") 选取所有 id="demo" 的 <p> 元素。 
+```
+### jQuery 属性选择器
+jQuery 使用 XPath 表达式来选择带有给定属性的元素。
+```
+$("[href]") 选取所有带有 href 属性的元素。
+$("[href='#']") 选取所有带有 href 值等于 "#" 的元素。
+$("[href!='#']") 选取所有带有 href 值不等于 "#" 的元素。
+$("[href$='.jpg']") 选取所有 href 值以 ".jpg" 结尾的元素。
+```
+> ajax
 
 
 
