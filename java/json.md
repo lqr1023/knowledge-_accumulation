@@ -115,12 +115,12 @@ Set<String> ids = json.keySet();
     private String pic1;
 	private String par1;
 	private List<List<String>> tab1;
-    //以下是get set方法
+       //以下是get set方法
  ```
  - 调用gson的转换方法
  ```
- 	String path = "D:/example.json";
-	String json = readJsonFile(path);
+    String path = "D:/example.json";
+    String json = readJsonFile(path);
     Gson gson = new Gson();
     java.lang.reflect.Type type = new TypeToken<Student>() {}.getType();
     Student jsonBean = gson.fromJson(json, type);
@@ -128,10 +128,10 @@ Set<String> ids = json.keySet();
     System.out.println(jsonBean.getPic1());
     List<List<String>> a = jsonBean.getTab1();
      for (List<String> list : a) {
-			for (String string : list) {
-				System.out.println(string);
-			}
-		}
+	for (String string : list) {
+		System.out.println(string);
+	}
+    }
  
  ```
  
