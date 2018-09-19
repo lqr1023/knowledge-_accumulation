@@ -78,7 +78,7 @@ public void copy(String old,String new){
 				}
 			}	
 		}else{
-			System.out.println("error:can not find the file " + xmlOriginal);
+			System.out.println("error:can not find the file " + old);
 		}
  }
 ```
