@@ -1,6 +1,7 @@
 ### java 对文件的操作
 需求1：文件夹下有许多子文件夹，需要返回所有的txt文件地址  
 - 不使用递归进行处理 建立list循环取
+```
 public void traverse(String path){
   List<String> txtPath = new ArrayList<String>();
   int txtNum = 0;
@@ -22,4 +23,5 @@ public void traverse(String path){
     }
   }
 }
+```
 
