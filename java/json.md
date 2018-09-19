@@ -92,6 +92,17 @@ Set<String> ids = json.keySet();
  }
  ```  
  ## 使用GsonOp解析json  
+ ### 依赖包
+ gson-2.7.jar  
+ ```
+     <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.7</version>
+      <scope>compile</scope>
+    </dependency>
+```
+ 
  ### GsonOp实现实体类和json的转换
  ```
  {
