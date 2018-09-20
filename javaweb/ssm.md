@@ -1,5 +1,5 @@
 ## 简单介绍
-springMVC是基于Servlet API，是Spring框架中最早的框架，spring4提倡用Java config的配置方式，spring5.0发布之后介绍了一个跟spring MVC平行的框架叫spring-webflux，以后慢慢学习，本篇示例来自https://blog.csdn.net/qq598535550/article/details/51703190spring 整合了spring,springMVC和mybatis,在这里梳理了一下框架的搭建过程，感谢原作者。
+springMVC是基于Servlet API，是Spring框架中最早的框架，spring4提倡用Java config的配置方式，spring5.0发布之后介绍了一个跟spring MVC平行的框架叫spring-webflux，以后慢慢学习，本篇示例来自https://blog.csdn.net/qq598535550/article/details/51703190   整合了spring,springMVC和mybatis,在这里梳理了一下框架的搭建过程，感谢原作者。
 ## 新建项目  
 - 新建一个maven web项目,在初始化框架里选择maven-archetype-webapp,GroupId一般填写的是公司名（com.demo），ArtifactId填写项目名(ssm)；
 - 新建项目路径 src/main/java 右键选择 mark Directory as sources root;src/main/resources 右键选择 mark as resources root;
