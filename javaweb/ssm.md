@@ -154,7 +154,33 @@ springMVC是基于Servlet API，是Spring框架中最早的框架，spring4提�
 - 扫描service包所有注解 @Service
 - 配置事务管理器，把事务管理交由spring来完成
 - 配置基于注解的声明式事务，可以直接在方法上@Transaction
-### 配置输出日志 这个省略了... logback/log4j  
+### 配置输出日志 这里我用的是log4j  
+- 加入依赖包
+```
+    <!-- https://mvnrepository.com/artifact/log4j/log4j -->
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.17</version>
+    </dependency>
+  </dependencies>
+```
+- 在resources下添加配置文件log4j.properties   为了之后调试方便将日志等级设置为DEBUG
+```
+log4j.rootLogger=DEBUG, Console
+log4j.appender.Console=org.apache.log4j.ConsoleAppender
+log4j.appender.Console.layout=org.apache.log4j.PatternLayout
+log4j.appender.Console.layout.ConversionPattern=%-5p [%c] :: %m%n
+log4j.appender.org.apache=INFO
+log4j.logger.org.apache.ibatis.io=INFO
+log4j.logger.org.apache.ibatis.logging.LogFactory=INFO
+log4j.logger.java.sql.Connection=DEBUG
+log4j.logger.java.sql.Statement=DEBUG
+log4j.logger.java.sql.PreparedStatement=DEBUG
+log4j.logger.com.opensymphony.xwork2=INFO
+log4j.logger.org.apache.struts2.dispatcher=INFO
+log4j.logger.org.apache.struts2.json.JSONUtil=INFO
+```
 ## 具体实例   
 ### dao
 - 创建数据库及数据表
@@ -208,8 +234,7 @@ CREATE TABLE `appointment` (
 ```
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 ``` 
-- 循环取list中的数值  
-> el表达式
+- 循环取list中的数值 使用el表达式
 ```
 <table>
     <tr>
@@ -227,8 +252,8 @@ CREATE TABLE `appointment` (
 </table>
 ```
 - 页面访问url http://localhost:8080/ssm/book/list  
-> form提交路径写法   
   ```
+  form提交路径写法    
   <%
    String path = request.getContextPath();
    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -271,7 +296,7 @@ $("[href='#']") 选取所有带有 href 值等于 "#" 的元素。
 $("[href!='#']") 选取所有带有 href 值不等于 "#" 的元素。
 $("[href$='.jpg']") 选取所有 href 值以 ".jpg" 结尾的元素。
 ```
-> ajax
+- 测试预约图书信息，在list.jsp新加了预约按钮
 
 
 
