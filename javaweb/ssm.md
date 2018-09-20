@@ -296,7 +296,8 @@ $("[href='#']") 选取所有带有 href 值等于 "#" 的元素。
 $("[href!='#']") 选取所有带有 href 值不等于 "#" 的元素。
 $("[href$='.jpg']") 选取所有 href 值以 ".jpg" 结尾的元素。
 ```
-- 测试预约图书信息，在list.jsp新加了预约按钮
+- 测试预约图书信息，在list.jsp新加了预约按钮  
+![](knowledge-accumulation/imgs/1.png) 
 
 
 
