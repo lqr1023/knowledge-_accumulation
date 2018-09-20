@@ -230,6 +230,7 @@ CREATE TABLE `appointment` (
 和泛型方法一样，泛型类的类型参数声明部分也包含一个或多个类型参数，参数间用逗号隔开。一个泛型参数，也被称为一个类型变量，是用于指定一个泛型类型名称的标识符。因为他们接受一个或多个参数，这些类被称为参数化的类或参数化的类型。    
 - 编写具体的controller代码 返回视图页面或者json数据 
 ### 前端简单测试    
+#### 测试/book/list 
 - 测试返回全部图书信息list.jsp 在指定返回视图文件夹下建立list.jsp,引入标签
 ```
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
@@ -260,7 +261,27 @@ CREATE TABLE `appointment` (
   %>
   action="<%=basePath=>/..."转成绝对路径或者<form action="<c:url value='/book/${book.bookId}/detail'/>" method="get">
   ```
-### juery 基本语法
+#### 测试预约 /book/  
+- 测试预约图书信息，在list.jsp新加了预约按钮  
+![](imgs/ssm/1.png)    
+在前台通过ajax传递studentId和bookid,代码如下：
+```
+  $.ajax({
+     type:"POST",
+     url: "/ssm/book/"+bookId+"/appoint",
+     contentType : "application/x-www-form-urlencoded",
+     dataType:"json",
+     data:{'studentId':'12356688996'},
+     success:function (data) {
+        var info = json.data;
+        alert(info.stateInfo);
+     }
+  });
+```
+这里返回的info就是对应的AppointExecution实体类，点击预约按钮可以看到返回不同的调用结果
+
+### 前端用到的知识
+#### juery 基本语法
 $(selector).action()     
 例如：
 ```
@@ -269,7 +290,7 @@ $("p").hide() - 隐藏所有段落
 $(".test").hide() - 隐藏所有 class="test" 的所有元素
 $("#test").hide() - 隐藏所有 id="test" 的元素
 ```
-### juery 引用地址
+#### juery 引用地址
 ```
 jQuery：   
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>  
@@ -282,23 +303,22 @@ jQuery UI：
   <script src="http://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>  
   <script src="http://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script> 
 ```
-### jQuery 元素选择器
+#### jQuery 元素选择器
 ```
 $("p") 选取 <p> 元素。
 $("p.intro") 选取所有 class="intro" 的 <p> 元素。
 $("p#demo") 选取所有 id="demo" 的 <p> 元素。 
 ```
-### jQuery 属性选择器
+#### jQuery 属性选择器
 jQuery 使用 XPath 表达式来选择带有给定属性的元素。
 ```
 $("[href]") 选取所有带有 href 属性的元素。
 $("[href='#']") 选取所有带有 href 值等于 "#" 的元素。
 $("[href!='#']") 选取所有带有 href 值不等于 "#" 的元素。
 $("[href$='.jpg']") 选取所有 href 值以 ".jpg" 结尾的元素。
-```
-- 测试预约图书信息，在list.jsp新加了预约按钮  
-![](imgs/ssm/1.png) 
-
+```  
+#### ajax的post方法bug
+> https://www.jianshu.com/p/d733834558d9  
 
 
 
