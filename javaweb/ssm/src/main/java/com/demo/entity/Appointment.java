@@ -1,0 +1,66 @@
+package com.demo.entity;
+
+import java.util.Date;
+
+/**
+ * @Author:
+ * @Description:
+ * @Data:Created in 18:03 2018/9/14
+ */
+public class Appointment {
+    private long bookId;// 图书ID
+    private long studentId;
+    private Date appointTime;
+    private Book book;
+    public Appointment() {
+    }
+
+    public Appointment(long bookId, long studentId, Date appointTime, Book book) {
+        this.bookId = bookId;
+        this.studentId = studentId;
+        this.appointTime = appointTime;
+        this.book = book;
+    }
+
+    public long getBookId() {
+        return bookId;
+    }
+
+    public void setBookId(long bookId) {
+        this.bookId = bookId;
+    }
+
+    public long getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(long studentId) {
+        this.studentId = studentId;
+    }
+
+    public Date getAppointTime() {
+        return appointTime;
+    }
+
+    public void setAppointTime(Date appointTime) {
+        this.appointTime = appointTime;
+    }
+
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
+
+    @Override
+    public String toString() {
+        return "Appointment{" +
+                "bookId=" + bookId +
+                ", studentId=" + studentId +
+                ", appointTime=" + appointTime +
+                ", book=" + book +
+                '}';
+    }
+}
