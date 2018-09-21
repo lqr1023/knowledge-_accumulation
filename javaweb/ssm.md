@@ -317,6 +317,36 @@ $("[href='#']") 选取所有带有 href 值等于 "#" 的元素。
 $("[href!='#']") 选取所有带有 href 值不等于 "#" 的元素。
 $("[href$='.jpg']") 选取所有 href 值以 ".jpg" 结尾的元素。
 ```  
+#### JQuery获取某个属性的值
+```
+在jQuery输入元素表达式属性名即可得到。
+如：
+
+1.$("#textId").attr("width")是获取Id为textId的控件的width属性。
+
+2.$(".className").attr("width")是获取包含class名为className的控件的width属性。
+
+3.$("[name=textName]").attr("width")是获取name为textName的控件的width属性。
+```
+#### JQuery获取内容
+```
+获得内容 - text()、html() 以及 val()
+三个简单实用的用于 DOM 操作的 jQuery 方法：
+
+    text() - 设置或返回所选元素的文本内容
+    html() - 设置或返回所选元素的内容（包括 HTML 标记）
+    val() - 设置或返回表单字段的值
+
+下面的例子演示如何通过 jQuery text() 和 html() 方法来获得内容：
+实例
+
+$("#btn1").click(function(){
+  alert("Text: " + $("#test").text());
+});
+$("#btn2").click(function(){
+  alert("HTML: " + $("#test").html());
+});
+```
 #### ajax的post方法bug
 > https://www.jianshu.com/p/d733834558d9  
 
