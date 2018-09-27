@@ -197,11 +197,129 @@ fs.createReadStream('input.txt.gz')
   
 console.log("文件解压完成。");
 ```
+- 模块系统
+为了让Node.js的文件可以相互调用，Node.js提供了一个简单的模块系统.   
 
+```
+var hello = require('./hello');
+hello.world();
+```
+以上实例中，代码 require('./hello') 引入了当前目录下的 hello.js 文件（./ 为当前目录，node.js 默认后缀为 js）。    
+Node.js 提供了 exports 和 require 两个对象，其中 exports 是模块公开的接口，require 用于从外部获取一个模块的接口，即所获取模块的 exports 对象。 
 
-
-
+```
+exports.world = function() {
+  console.log('Hello World');
+}
+```
+有时候我们只是想把一个对象封装到模块中，格式如下：   
+```
+//hello.js 
+function Hello() { 
+    var name; 
+    this.setName = function(thyName) { 
+        name = thyName; 
+    }; 
+    this.sayHello = function() { 
+        console.log('Hello ' + name); 
+    }; 
+}; 
+module.exports = Hello;
+```
+这样就可以直接获得这个对象了：  
+```
+//main.js 
+var Hello = require('./hello'); 
+hello = new Hello(); 
+hello.setName('BYVoid'); 
+hello.sayHello(); 
+```
+- 函数传递如何让HTTP服务器工作
+```
+var http = require("http");
+function onRequest(request, response) {
+  response.writeHead(200, {"Content-Type": "text/plain"});
+  response.write("Hello World");
+  response.end();
+}
+http.createServer(onRequest).listen(8888);
+```
+- 全局对象
+javascript中有一个特殊的对象，称为全局对象，它及其所有属性都可以在程序的任何地方访问，即全局变量；
+在浏览器javascript中，通常window是全局对象，而node.js中的全局对象是global,所有全局变量(除了global本身以外)都是global对象的属性；
+在Node.js我们可以直接访问到global的属性，而不需要在应用中包含它。        
 ### post/get 
+- post请求  
+ POST 请求的内容全部的都在请求体中，http.ServerRequest 并没有一个属性内容为请求体，原因是等待请求体传输可能是一件耗时的工作。
+比如上传文件，而很多时候我们可能并不需要理会请求体的内容，恶意的POST请求会大大消耗服务器的资源，所以 node.js 默认是不会解析请求体的，当你需要的时候，需要手动来做。   
+基本语法说明：
+```
+var http = require('http');
+var querystring = require('querystring');
+ 
+http.createServer(function(req, res){
+    // 定义了一个post变量，用于暂存请求体的信息
+    var post = '';     
+ 
+    // 通过req的data事件监听函数，每当接受到请求体的数据，就累加到post变量中
+    req.on('data', function(chunk){    
+        post += chunk;
+    });
+ 
+    // 在end事件触发后，通过querystring.parse将post解析为真正的POST请求格式，然后向客户端返回。
+    req.on('end', function(){    
+        post = querystring.parse(post);
+        res.end(util.inspect(post));
+    });
+}).listen(3000);
+```
+例：    
+```
 
-### 上传文件
-### 数据库
+var http = require('http');
+var querystring = require('querystring');
+ 
+var postHTML = 
+  '<html><head><meta charset="utf-8"><title>菜鸟教程 Node.js 实例</title></head>' +
+  '<body>' +
+  '<form method="post">' +
+  '网站名： <input name="name"><br>' +
+  '网站 URL： <input name="url"><br>' +
+  '<input type="submit">' +
+  '</form>' +
+  '</body></html>';
+ 
+http.createServer(function (req, res) {
+  var body = "";
+  req.on('data', function (chunk) {
+    body += chunk;
+  });
+  req.on('end', function () {
+    // 解析参数
+    body = querystring.parse(body);
+    // 设置响应头部信息及编码
+    res.writeHead(200, {'Content-Type': 'text/html; charset=utf8'});
+ 
+    if(body.name && body.url) { // 输出提交的数据
+        res.write("网站名：" + body.name);
+        res.write("<br>");
+        res.write("网站 URL：" + body.url);
+    } else {  // 输出表单
+        res.write(postHTML);
+    }
+    res.end();
+  });
+}).listen(3000);
+``` 
+### Express 框架    
+Express 是一个简洁而灵活的 node.js Web应用框架, 提供了一系列强大特性帮助你创建各种 Web 应用，和丰富的 HTTP 工具。     
+使用 Express 可以快速地搭建一个完整功能的网站。    
+Express 框架核心特性：    
+可以设置中间件来响应 HTTP 请求。   
+定义了路由表用于执行不同的 HTTP 请求动作。    
+可以通过向模板传递参数来动态渲染 HTML 页面。  
+
+
+
+
+
