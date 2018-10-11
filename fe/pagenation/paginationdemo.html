@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Paginationjs example</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+
+        #wrapper {
+            width: 900px;
+            margin: 20px auto;
+        }
+
+        .data-container {
+            margin-top: 5px;
+			width:200px;
+			height:500px;
+			border:1px soild #000;
+			/*滚动条*/
+			overflow: hidden;
+			overflow-y: auto;
+			text-align:center;
+        }
+
+        .data-container ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        .data-container li {
+            margin-bottom: 5px;
+            padding: 5px 10px;
+            background: #eee;
+            color: #666;
+        }
+		
+		/*
+			定义分页样式
+		*/
+
+		.pagination-info .active {
+			display: inline-block;
+			width: 30px;
+			height: 30px;
+			line-height: 30px;
+			background: #337ab7;
+			color: #fff;
+			font-size: 14px;
+			border: 1px solid #337ab7;
+			margin-left: -1px;
+			text-align:center;
+		}
+
+		.pagination-info a {
+			display: inline-block;
+			width: 30px;
+			height: 30px;
+			line-height: 30px;
+			background: #fff;
+			border: 1px solid #ebebeb;
+			color: #0056b3;
+			font-size: 14px;
+			text-decoration: none;
+			text-align:center;
+		}
+
+
+		.pagination-info input {
+			display: inline-block;
+			margin: 0 5px;
+			width: 30px;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+			background: #fff;
+			border: 1px solid #ebebeb;
+			outline: none;
+			color: #bdbdbd;
+			font-size: 14px;
+		}
+    </style>
+</head>
+<body>
+<div class ="data-container">
+</div>
+<div id="wrapper" class="pagination-info">
+</div>
+
+<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+<script src="jquery.pagination.js"></script>
+<script>
+//页面加载完毕就执行
+var pagination_demo = (function (){
+	//模拟数据 生成35条
+	var sources = function(){
+		var array = [];
+		
+		for(var i = 0;i<100;i++){
+			array.push(i);
+		}
+		
+		return array;
+	}();
+	
+	(function(){
+		_load(1,30,'data-container');
+	})();
+	
+	//@param currentpage:显示的是第几页的信息
+	//@param pagesize:每页显示几条信息
+	//@param domId:需要操作的dom
+	function _load(currentpage,pagesize,domId){
+		//这里实际应该是ajax后台取值
+		var start = (currentpage-1)*pagesize;
+		var end = start + pagesize;
+		
+		if(end > sources.length){
+			end = sources.length;
+		}
+		
+		var html = '<ul>'
+		for(var i=start;i<end;i++){
+			html += '<li>' + sources[i] + '</li>';
+		}
+		html += '<ul>';
+
+		$('.'+ domId).html(html);
+		//执行分页 只有在第一页的时候进行分页操作
+		if(currentpage == 1){
+			$('#wrapper').pagination({
+				pageCount:Math.ceil(sources.length/pagesize),
+				jump:true,
+				coping:true,
+				homePage:'首页',
+				endPage:'末页',
+				prevContent:'上页',
+				nextContent:'下页',
+				callback: function(key){
+					//这里执行回调函数
+					pagination_demo.load(key.getCurrent(),pagesize,'data-container');
+				}	
+			});
+		
+		}
+	};
+	
+	return {
+        load:_load,
+    }
+})();
+</script>
+</body>
+</html>
