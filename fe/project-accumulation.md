@@ -6,5 +6,9 @@ $(function(){
 //执行语句
 })
 ```
-以上写法等同于 $(document).ready(function(){})，执行顺序是在dom加载完成之后即页面所有的html标签(包括图片等)都加载完了即浏览器已经响应完成，加载完成之后全部展现到浏览器界面上。
+以上写法等同于 $(document).ready(function(){})，执行顺序是在dom加载完成之后即页面所有的html标签(包括图片等)都加载完了即浏览器已经响应完成，加载完成之后全部展现到浏览器界面上。  
+(function (a,b){
+})(1,2)
+(参数)
+https://www.cnblogs.com/yanzp/p/6371292.html
 - 调用框架
