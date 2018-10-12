@@ -318,6 +318,72 @@ Express 框架核心特性：
 可以设置中间件来响应 HTTP 请求。   
 定义了路由表用于执行不同的 HTTP 请求动作。    
 可以通过向模板传递参数来动态渲染 HTML 页面。  
+- 路由
+```
+var express = require('express');
+var app = express();
+
+app.get('/',function(req,res){
+	console.log("主页Get请求");
+	res.send('Hello Get');
+})
+
+app.post('/',function(req,res){
+	console.log("主页POST请求");
+	res.send('Hello POST');
+})
+
+app.get('/del_user',function(req,res){
+	console.log("/del_user GET请求");
+	res.send('删除页面');
+})
+
+app.get('/list_user',function(req,res){
+	console.log("/list_user GET请求");
+	res.send('list_user GET请求');
+})
+
+app.get('/ab*cd',function(req,res){
+	console.log("/ab*cd GET请求");
+	res.send('ab*cd GET请求');
+})
+
+var server = app.listen(8081,function(){
+	var host = server.address().address;
+	var port = server.address().port;
+	
+	console.log("应用实例,请访问http://%s:%s",host,port);
+})    
+```      
+- 静态文件  
+可以通过配置express.static来设置静态文件如：图片,css,javascript等。   
+eg:新建public/images文件夹 存放图片；
+```
+var express = require('express');
+var app = express();
+ 
+app.use(express.static('public'));
+ 
+app.get('/', function (req, res) {
+   res.send('Hello World');
+})
+ 
+var server = app.listen(8081, function () {
+ 
+  var host = server.address().address
+  var port = server.address().port
+  console.log("应用实例，访问地址为 http://%s:%s", host, port)
+})
+```       
+访问地址http://localhost:8081/images/...      
+- get方法  
+
+
+
+
+
+
+
 
 
 
