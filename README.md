@@ -9,7 +9,9 @@
   -- json文件的读取与写入 json 2018.9.19 完成
   -- 文件夹，新建文件等关于文件的操作 Dir 2018.9.19 完成
 - 前端
-  -- node.js 2018.9.26 
+  -- node.js 2018.9.26  
+  -- pagenation 分页 2018.10.12
+  -- projectaccumulation 项目积累 2018.10.12
 - 脚本
   -- shell
   -- python
