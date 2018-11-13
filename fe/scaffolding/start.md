@@ -1,5 +1,15 @@
 ### 前端脚手架 （资料来源网络）
 在软件开发上（当然也包括前端开发）的脚手架指的就是：有人帮你把这个开发过程中要用到的工具、环境都配置好了，你就可以方便地直接开始做开发，专注你的业务，而不用再花时间去配置这个开发环境，这个开发环境就是脚手架。  
+#### npm/nodejs 
+这里不介绍安装方法了,记录一些常用的命令  
+```
+npm init 初始化项目
+npm install module[@version] 安装依赖
+pm install -g cnpm --registry=https://registry.npm.taobao.org 全局安装
+npm install module --save/--save-dev 安装并写进package.json里
+npm ls module 列出该模块的信息   
+npm config set registry http://registry.npm.taobao.org 修改为淘宝的镜像地址  
+```
 ### grunt
 #### 简介
 任务运行器，使用grunt可以减少重复的工作，比如压缩，编译，单元测试，工具程序等等，会使你的工作变得简单。当你配置了Gruntfile，任务运行器会帮你做这些工作。
