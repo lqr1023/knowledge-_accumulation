@@ -16,9 +16,9 @@ D:\>npm ls -g grunt-cli
 #### 拿一份现有的 Grunt 项目练手 
 假定Grunt CLI已经正确安装，并且已经有一份配置好package.json 和 Gruntfile 文件的项目了，接下来就很容易拿Grunt练手了：
 
-    将命令行的当前目录转到项目的根目录下。
-    执行npm install命令安装项目依赖的库。
-    执行 grunt 命令。
+- 将命令行的当前目录转到项目的根目录下。
+- 执行npm install命令安装项目依赖的库。
+- 执行 grunt 命令。
 
 OK，就是这么简单。还可以通过grunt --help 命令列出所有已安装的Grunt任务（task），但是一般更建议去查看项目的文档以获取帮助信息。
 #### 准备一份新的 Grunt 项目 
@@ -29,9 +29,9 @@ Gruntfile: 此文件被命名为 Gruntfile.js 或 Gruntfile.coffee，用来配�
 package.json应该放在项目的根目录下，与Gruntfile在同一目录中，并且应该与项目的源代码一起被提交。在上述目录(package.json所在目录)中运行npm install将依据package.json文件中所列出的每个依赖来自动安装适当版本的依赖。   
 下面列出了几种为你的项目创建package.json文件的方式：
 
-    大部分 grunt-init 模版都会自动创建特定于项目的package.json文件。
-    npm init命令会创建一个基本的package.json文件。
-    复制下面的案例，并根据需要做扩充，参考此说明.
+- 大部分 grunt-init 模版都会自动创建特定于项目的package.json文件。
+- npm init命令会创建一个基本的package.json文件。
+- 复制下面的案例，并根据需要做扩充，参考此说明.
 ```
 {
   "name": "my-project-name",
