@@ -13,6 +13,7 @@ npm config set registry http://registry.npm.taobao.org 修改为淘宝的镜像�
 ### grunt
 #### 简介
 任务运行器，使用grunt可以减少重复的工作，比如压缩，编译，单元测试，工具程序等等，会使你的工作变得简单。当你配置了Gruntfile，任务运行器会帮你做这些工作。
+参考文章 https://www.cnblogs.com/yexiaochai/p/3603389.html
 #### 安装
 ```
 npm install -g grunt-cli
@@ -140,7 +141,46 @@ module.exports = function(grunt) {
 
 };  
 特定于项目的任务不必在 Gruntfile 中定义。他们可以定义在外部.js 文件中，并通过grunt.loadTasks 方法加载。
-
+#### 插件
+- grunt-contrib-concat合并js文件
+```
+module.exports = function (grunt) {
+  // 项目配置
+  grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
+    concat: {
+      options: {
+        separator: ';'
+      },
+      dist: {
+        src: ['src/zepto.js', 'src/underscore.js', 'src/backbone.js'],
+        dest: 'dest/libs.js'
+      }
+    }
+  });
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  // 默认任务
+  grunt.registerTask('default', ['concat']);
+}
+```
+- grunt-contrib-uglify压缩文件
+```
+module.exports = function (grunt) {
+  // 项目配置
+  grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
+    uglify: {
+      build: {
+        src: 'dest/libs.js',
+        dest: 'dest/libs.min.js'
+      }
+    }
+  });
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  // 默认任务
+  grunt.registerTask('default', ['uglify']);
+}
+```
 
 
 
