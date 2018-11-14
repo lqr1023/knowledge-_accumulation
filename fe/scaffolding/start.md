@@ -187,6 +187,19 @@ module.exports = function (grunt) {
   grunt.registerTask('default', ['uglify']);
 }
 ```
+- 移动复制文件
+```
+grunt.initConfig({ copy: {
+  main: {
+    flatten: true,
+    //    filter: 'isFile',
+    expand: true, 
+    src: 'src/**.js',
+    dest: 'dest/'
+  }
+}
+});
+```
 
 
 
