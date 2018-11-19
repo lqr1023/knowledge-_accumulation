@@ -25,5 +25,6 @@
   -- mongodb
 - 通信类
   -- activeMQ
+- git 常用的命令和配置
 ```
  
