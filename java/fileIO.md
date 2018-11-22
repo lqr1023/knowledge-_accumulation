@@ -82,5 +82,22 @@ public void copy(String old,String new){
 		}
  }
 ```
+复制文件jdk里有现成的方法：
+```
+    @Test
+    public void copy(){
+        System.out.println(FileUtil.class.getClassLoader().getResource("static/a.txt").getPath());
+        File source = new File(FileUtil.class.getClassLoader().getResource("static/a.txt").getPath());
+        File dest = new File(FileUtil.class.getClassLoader().getResource("").getPath() + "static/b.txt");
+
+        try {
+            Files.copy(source.toPath(), dest.toPath());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+}
+```
 
 
