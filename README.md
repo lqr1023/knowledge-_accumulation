@@ -13,9 +13,10 @@
   -- maven项目路径获取问题 mavenPath 2018.10.30 完成
 - 前端
   -- node.js 2018.9.26 积累 
-  -- pagenation 分页 2018.10.12
+  -- pagenation 分页 2018.10.12 完成
   -- projectaccumulation 2018.10.12 积累 
   -- svg 积累
+  -- scaffolding 前端脚手架 2018.11.15 完成
 - 脚本
   -- shell
   -- python
