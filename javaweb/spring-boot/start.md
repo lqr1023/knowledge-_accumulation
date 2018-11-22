@@ -44,11 +44,13 @@ public class SpringbootApplication {
         <finalName>filesDemo</finalName>
     </build>
 ```
-直接使用maven进行打成war包；
+直接使用maven进行打成war包；  
+
 2.在tomcat下运行根目录是localhost:8080/，默认情况下springboot项目的根目录是localhost:8080/ 在application.properties下添加配置：
 ```
 server.servlet.context-path=/filesDemo
 ```
+
 3.这里总结一下遇到的路径错误问题：      
 > 直接转发和简介转发的问题： https://www.cnblogs.com/selene/p/4518246.html   
 > web的路径问题：https://www.cnblogs.com/fnz0/p/5595546.html    
