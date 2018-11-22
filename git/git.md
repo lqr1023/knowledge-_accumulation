@@ -25,7 +25,8 @@ git push
 ```
 ### 修改域名解决访问github速度慢的问题
 1. 获取Github相关网站的ip  
-访问https://www.ipaddress.com，拉下来，找到页面中下方的“IP Address Tools – Quick Links”
+访问https://www.ipaddress.com    
+拉下来，找到页面中下方的“IP Address Tools – Quick Links”
 分别输入github.global.ssl.fastly.net和github.com，查询ip地址  
 2. 修改本地hosts文件C:\Windows\System32\drivers\etc\hosts  
 参考如下，增加github.global.ssl.fastly.net和github.com的映射  
