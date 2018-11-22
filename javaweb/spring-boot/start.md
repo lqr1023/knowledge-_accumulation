@@ -102,7 +102,11 @@ PostMapping和redirect不用配置项目名称；
         }
     }
 ```
-以上代码是spring官方示例中上传文件的一段代码，上传的路径获取是this.rootLocation.resolve(filename) 发布到tomcat里会在tomcatxxx/bin下创建文件夹；
+以上代码是spring官方示例中上传文件的一段代码，上传的路径获取是this.rootLocation.resolve(filename) 发布到tomcat里会在tomcatxxx/bin下创建文件夹；修改成通过classpath来获取路径,
+```
+//.class.getClassLoader().getResource("").getPath()获取到classpath的绝对路径
+private String location = StorageProperties.class.getClassLoader().getResource("").getPath() + "upload-dir";
+```
 
 
 
