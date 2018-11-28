@@ -11,6 +11,8 @@
   -- json文件的读取与写入 json 2018.9.19 完成
   -- 文件夹，新建文件等关于文件的操作 Dir 2018.9.19 完成
   -- maven项目路径获取问题 mavenPath 2018.10.30 完成
+  -- 绝对路径和相对路径的转化,multipartfile和file文件的转化 file 
+  -- 在java中创建一个uuid 2018.11.28完成 uuid 
 - 前端
   -- node.js 2018.9.26 积累 
   -- pagenation 分页 2018.10.12 完成
