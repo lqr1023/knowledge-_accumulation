@@ -32,6 +32,14 @@ public class SpringbootApplication {
     <packaging>war</packaging>
     <version>0.1.0</version>
 ```
+引入依赖包
+```
+<dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-tomcat</artifactId>
+        <scope>provided</scope>
+</dependency>
+```
 修改发布的项目名称,定义为filesDemo  
 ```
     <build>
@@ -50,8 +58,18 @@ public class SpringbootApplication {
 ```
 server.servlet.context-path=/filesDemo
 ```
+3.重新写启动类，继承接口
+```
+@SpringBootApplication
+public class Application extends SpringBootServletInitializer {
 
-3.这里总结一下遇到的路径错误问题：      
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(Application.class);
+    }
+}
+```
+4.这里总结一下遇到的路径错误问题：      
 > 直接转发和简介转发的问题： https://www.cnblogs.com/selene/p/4518246.html   
 > web的路径问题：https://www.cnblogs.com/fnz0/p/5595546.html    
    
