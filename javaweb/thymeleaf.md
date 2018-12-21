@@ -94,4 +94,66 @@ th:if th:unless switch
 <p th:case="#{roles.manager}">xxx</p>
 <p th:case="*">xxx</p>
 </div>
+```  
+### 模板替换
+在web界面中会包含公共的页面比如header或者footer,这时可以使用thymeleaf直接进行对共有模块进行替换   
+- templates  
+--fragments  
+  ---footer.html  
+  ---header.html  
+--index.html  
+在index的head部分写入   
 ```
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="~{fragments/header :: header}">
+</head>
+<body>
+<!--当前页面的前端代码-->
+<!-- 引入footer-->
+<div th:replace="~{fragments/footer :: footer}">...</div>
+</body>
+</html>
+```
+
+footer.html
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<footer data-th-fragment="footer">
+   	<!-- JavaScript -->
+    <!-- 在footer中引入脚本文件，会在静态页面加载完成之后导入，显示速度会变快 -->
+ </footer>
+</body>
+</html>
+```
+
+header.html
+```
+<!DOCTYPE html>
+<html lang="en" data-th-fragment="header"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title></title>
+    <!-- css -->
+    <link rel="stylesheet" href=" ">
+</head>
+<body>
+<nav>
+   <!-- 这里可以设置导航面板 -->
+</nav>
+</body>
+</html>
+
+```
+
+
