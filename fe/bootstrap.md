@@ -53,3 +53,7 @@ auto - for classes that set the margin to auto
 ### bootstrap4中的卡片  
 http://www.runoob.com/bootstrap4/bootstrap4-cards.html   
 
+### bootstrap 徽章
+http://www.runoob.com/bootstrap/bootstrap-badges.html 
+
+
