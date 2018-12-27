@@ -1,5 +1,6 @@
 ### 关于颜色转换
 工作中遇到了将ps过后的图片上传到网页上展示的问题，经过ps处理过的图片格式存储时颜色格式有时为CMYK，展示到界面上颜色失真，在网上找了各种转换方法，很多种方法经过尝试后发现都会有一部分颜色损失，最终选定了以下转换方式，目前测试阶段效果还不错。
+参考文章：https://stackoverflow.com/questions/3123574/how-to-convert-from-cmyk-to-rgb-in-java-correctly   
 ```
 public class JpegReader {
 
@@ -14,6 +15,7 @@ public class JpegReader {
         hasAdobeMarker = false;
         ImageInputStream stream = ImageIO.createImageInputStream(file);
         Iterator<ImageReader> iter = ImageIO.getImageReaders(stream);
+        //原文这里通过捕获异常的方式判定需不需要转颜色，为了测试删去了，参考原文逻辑补充...
         while (iter.hasNext()) {
             ImageReader reader = iter.next();
             reader.setInput(stream);
