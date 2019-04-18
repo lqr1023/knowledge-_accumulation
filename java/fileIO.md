@@ -99,5 +99,62 @@ public void copy(String old,String new){
 
 }
 ```
+### 递归遍历文件夹下所有的文件
+```
+public void traverseFolder2(String path) {      
+    File file = new File(path);    
+        if (file.exists()) {  
+            File[] files = file.listFiles();  
+            if (files.length == 0) {  
+                System.out.println("文件夹是空的!");  
+                return;  
+            } else {  
+                for (File file2 : files) {  
+                    if (file2.isDirectory()) {  
+                        //System.out.println("文件夹:" + file2.getAbsolutePath());  
+                        traverseFolder2(file2.getAbsolutePath());  
+                    } else {
+                    	//System.out.println(file2.getName());
+                    	if(file2.getName().endsWith("vue")){
+                    		 System.out.println("文件:" + file2.getAbsolutePath());  
+                    		 BufferedReader reader = null;
+                    		 try {
+				      reader = new BufferedReader(new InputStreamReader(new FileInputStream(file2), "utf-8"));      
+				      //内存流           
+				      CharArrayWriter caw=new CharArrayWriter();      
+				      //替换                          
+				      String line=null; //以行为单位进行遍历        
+				      while((line=reader.readLine())!=null){              
+				          //替换每一行中符合被替换字符条件的字符串               
+					  line=line.replaceAll("xx", "xx"); 
+					  //将该行写入内存 
+					  caw.write(line); 
+					  caw.append(System.getProperty("line.separator")); 
+				      }
+				      reader.close(); 
+				      FileWriter fw=new FileWriter(file2);           
+				      caw.writeTo(fw); 
+				      fw.close();             
+                    		   } catch (UnsupportedEncodingException e) {           
+				     // TODO Auto-generated catch block         
+					e.printStackTrace();       
+				   } catch (FileNotFoundException e) {         
+					// TODO Auto-generated catch block          
+					e.printStackTrace();
+				   } catch (IOException e) {          
+					// TODO Auto-generated catch block          
+					e.printStackTrace();      
+			           }
+                    		 
+                    	        }
+                           }  
+                     }  
+                }     
+        } else {     
+            System.out.println("文件不存在!");     
+        }      
+    }     
+ ```   
+
 
 
