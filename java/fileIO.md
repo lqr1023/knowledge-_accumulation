@@ -155,6 +155,16 @@ public void traverseFolder2(String path) {
         }      
     }     
  ```   
+### 关于java中的io流  
+根据流的方向可以分成两类输入流和输出流；     
+根据操作对象分成两类：字节流和字符流；           
+https://www.jianshu.com/p/80f8a74d4662
+
+InputStream    ---> FileInputStream(文件)/ByteArrayInputStream（内存 存到一个数组里）/StringBufferInputStream/...
+     |  InputStreamReader 指定字符集编码        
+ Reader       ---->BufferedReader
+              ---->CharArrayReader/StringReader/ByteArrayReader
 
 
+![img](https://upload-images.jianshu.io/upload_images/3985563-38c3ea4562d6dbe3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/687)
 
