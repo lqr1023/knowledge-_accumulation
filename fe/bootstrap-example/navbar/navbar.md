@@ -12,17 +12,17 @@
 			</div>
 			<div class="col-md-8">
 				<div class="row">
-					<div class="col-md-6">
-						<div class="mt-3" style="float:right;">
+					<div class="col-md-10">
+						<form class="form-inline mt-2" style="float:right;">
+							<input class="form-control" type="text" placeholder="Search" aria-label="Search">
+							<button class="btn btn-outline-success" type="submit">Search</button>
+						</form>
+					</div>
+					<div class="col-md-2">
+						<div class="mt-3" style="float:center;">
 						<a href="#" class="mr-2">登录</a>
 						<a href="#">注册</a>
 						</div>
-					</div>
-					<div class="col-md-6">
-						<form class="form-inline mt-2" style="float:left;">
-							<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-							<button class="btn btn-outline-success" type="submit">Search</button>
-						</form>
 					</div>	
 				</div>
 			</div>
