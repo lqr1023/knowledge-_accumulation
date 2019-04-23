@@ -1,0 +1,123 @@
+<html lang="en" class="h-100"><head>
+    <meta charset="utf-8">
+    <title>第一种布局navbar</title>
+    <!-- Bootstrap core CSS -->
+	<link href="https://getbootstrap.com/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+<style>
+	body {
+		padding-top: 140px; padding-bottom:70px;
+	}
+	.logo-search{
+		position: fixed;
+		top: 0;
+		right: 0;
+		left: 0;
+		z-index: 1030;}
+	.item{
+		list-style: none;
+	}
+</style>
+	
+  <body class="d-flex flex-column h-100">
+	<!-- Fixed navbar 
+	<div class="logo-search bg-light row">
+		<div class="col-md-8">
+			<a href="#">
+				<span><img class="ml-5 mt-2" src="https://gss1.bdstatic.com/-vo3dSag_xI4khGkpoWK1HF6hhy/baike/crop%3D0%2C26%2C607%2C400%3Bc0%3Dbaike80%2C5%2C5%2C80%2C26/sign=1da93d49b83eb1355088edfb9b2e84e1/f9dcd100baa1cd11ef286381bd12c8fcc2ce2df0.jpg" style="width:50px;height:50px;"></span>
+			</a>
+		</div>
+		<div class="col-md-4 d-flex flex-row">
+			<a  href="#" class="mr-2 mt-4">登录</a>
+			<a href="#" class="mr-2 mt-4">注册</a>
+			<form class="form-inline mt-3 mr-5">
+				<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+			</form>
+		</div>
+	</div>
+	-->
+	<header>
+	<nav class="navbar-expand-md navbar-light fixed-top bg-light">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<a class="navbar-brand" href="#"><span><img class="mt-2" src="https://gss1.bdstatic.com/-vo3dSag_xI4khGkpoWK1HF6hhy/baike/crop%3D0%2C26%2C607%2C400%3Bc0%3Dbaike80%2C5%2C5%2C80%2C26/sign=1da93d49b83eb1355088edfb9b2e84e1/f9dcd100baa1cd11ef286381bd12c8fcc2ce2df0.jpg" style="width:50px;height:50px;"></span></a>
+			</div>
+			<div class="col-md-8">
+				<div class="row">
+					<div class="col-md-10">
+						<form class="form-inline mt-2" style="float:right;">
+							<input class="form-control" type="text" placeholder="Search" aria-label="Search">
+							<button class="btn btn-outline-success" type="submit">Search</button>
+						</form>
+					</div>
+					<div class="col-md-2">
+						<div class="mt-3" style="float:center;">
+						<a href="#" class="mr-2">登录</a>
+						<a href="#">注册</a>
+						</div>
+					</div>	
+				</div>
+			</div>
+		</div>
+		<div class="row">		
+			<ul class="nav">
+				<li class="nav-item">
+				<a class="nav-link active" href="#">Active</a>
+				</li>
+				<li class="nav-item">
+				<a class="nav-link" href="#">Link</a>
+				</li>
+				<li class="nav-item">
+				<a class="nav-link" href="#">Link</a>
+				</li>
+				<li class="nav-item">
+				<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+				</li>
+			</ul>
+		</div>	
+	</div>
+	</nav> 
+</header>
+	<!--
+	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+		<a class="navbar-brand" href="#">Fixed navbar</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarCollapse">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item active">
+				<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Link</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+			</li>
+      </ul>
+      <form class="form-inline mt-2 mt-md-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+ -->
+
+
+<!-- Begin page content -->
+<main role="main" class="flex-shrink-0">
+  <div class="container">
+    <h1 class="mt-5">Sticky footer with fixed navbar</h1>
+    <p class="lead">Pin a footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with <code>padding-top: 60px;</code> on the <code>main &gt; .container</code>.</p>
+    <p>Back to <a href="/docs/4.3/examples/sticky-footer/">the default sticky footer</a> minus the navbar.</p>
+  </div>
+</main>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="https://getbootstrap.com/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+</body>
+</html>
