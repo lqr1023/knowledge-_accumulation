@@ -33,7 +33,8 @@
   -- redis
   -- mongodb
 - 通信类
-  -- activeMQ
+  -- activeMQ  
+  -- RabbitMQ  
 - git 常用的命令和配置
 ```
  
